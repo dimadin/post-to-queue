@@ -531,7 +531,7 @@ class Post_to_Queue_Admin {
 	 *
 	 * @param  array   $actions An array of post row action links.
 	 * @param  WP_Post $_post   Post object.
-	 * @return array   $actions Modified array of post row action links.	 
+	 * @return array   $actions Modified array of post row action links.
 	 */
 	public function post_row_actions( $actions, $_post ) {
 		/**

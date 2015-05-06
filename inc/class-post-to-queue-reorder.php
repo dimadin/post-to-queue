@@ -332,7 +332,7 @@ class Post_to_Queue_Reorder {
 		 */
 		do_action( 'ptq_reorder_after_register_screens' );
 	}
-	
+
 	/**
 	 * Display reorder post row.
 	 *
