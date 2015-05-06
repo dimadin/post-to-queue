@@ -676,7 +676,7 @@ class Post_to_Queue_Admin {
 		do_action( 'ptq_admin_after_post_row_actions_handle' );
 
 		// Redirect to previous page
-		wp_redirect( wp_get_referer() );
+		wp_safe_redirect( wp_get_referer() );
 		exit;
 	}
 }
