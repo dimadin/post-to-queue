@@ -55,6 +55,9 @@ class Post_to_Queue_Admin {
 		// Add post row actions
 		add_action( 'admin_init',                  array( $this, 'post_row_actions_handle'  )        );
 
+		// Register post row post status
+		add_filter( 'display_post_states',         array( $this, 'post_states'              ), 10, 2 );
+
 		// Register post row actions handler
 		add_filter( 'post_row_actions',            array( $this, 'post_row_actions'         ), 10, 2 );
 		add_filter( 'page_row_actions',            array( $this, 'post_row_actions'         ), 10, 2 );
@@ -479,6 +482,45 @@ class Post_to_Queue_Admin {
 		do_action( 'ptq_admin_before_validate_settings', $settings, $new_settings );
 
 		return $new_settings;
+	}
+
+	/**
+	 * Display if post is queued after title on edit posts table row.
+	 *
+	 * @since 1.0
+	 * @access public
+	 *
+	 * @param  array   $post_states An array of post display states.
+	 * @param  WP_Post $_post       Post object.
+	 * @return array   $post_states Modified array of post display states.
+	 */
+	public function post_states( $post_states, $_post ) {
+		/**
+		 * Fires before post queue state is made.
+		 *
+		 * @since 1.0
+		 *
+		 * @param  array   $post_states An array of post display states.
+		 * @param  WP_Post $_post       Post object.
+		 */
+		do_action( 'ptq_admin_before_post_states', $post_states, $_post );
+
+		if ( $this->ptq->status == $_post->post_status ) {
+			/* translators: post state */
+			$post_states[ $this->ptq->status ] = _x( 'Queued', 'post state' );
+		}
+
+		/**
+		 * Fires after post queue state is made.
+		 *
+		 * @since 1.0
+		 *
+		 * @param  array   $post_states An array of post display states.
+		 * @param  WP_Post $_post       Post object.
+		 */
+		do_action( 'ptq_admin_after_post_states', $post_states, $_post );
+
+		return $post_states;
 	}
 
 	/**
