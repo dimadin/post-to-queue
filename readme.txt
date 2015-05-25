@@ -3,7 +3,7 @@ Contributors: dimadin
 Donate link: http://blog.milandinic.com/donate/
 Tags: 
 Requires at least: 3.5
-Tested up to: 3.8
+Tested up to: 4.2.2
 Stable tag: 1.0
 
 Stack posts to queue and auto publish them in chosen interval and time frame.
