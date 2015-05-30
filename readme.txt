@@ -14,7 +14,7 @@ Stack posts to queue and auto publish them in chosen interval and time frame.
 
 Don't want to publish all of your posts at once but hate manual scheduling/rescheduling? Post to Queue comes as a solution. You just put posts to queue and they'll be published automatically when chosen time passes since last published post. It's even possible to choose days of the week and hours of the day when those posts will be published.
 
-Post to Queue is like Buffer, just better.
+Post to Queue is like Buffer for WordPress, just better.
 
 It requires that cron runs regularly to be able to publish posts on time.
 
