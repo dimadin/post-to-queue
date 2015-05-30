@@ -26,14 +26,14 @@ Post to Queue code is partly based on a code from plugin [Automatic Post Schedul
 
 1. Visit 'Plugins > Add New'
 2. Search for 'Post to Queue'
-3. Activate Post to Queue' from your Plugins page.
+3. Activate 'Post to Queue' from your Plugins page.
 4. Write post, check 'Add to queue' and press 'Publish' to queue post.
 
 = From WordPress.org =
 
-1. Download Post to Queue'.
-2. Upload the 'post-to-queue' directory to your '/wp-content/plugins/' directory, using your favorite method (ftp, sftp, scp, etc...)
-3. Activate Post to Queue' from your Plugins page. (You'll be greeted with a Welcome page.)
+1. Download 'Post to Queue'.
+2. Upload the `post-to-queue` directory to your `/wp-content/plugins/` directory, using your favorite method (ftp, sftp, scp, etc...)
+3. Activate 'Post to Queue' from your Plugins page. (You'll be greeted with a Welcome page.)
 4. Write post, check 'Add to queue' and press 'Publish' to queue post.
 
 = Extra =
