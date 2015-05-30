@@ -348,8 +348,8 @@ class Post_to_Queue {
 					}
 
 					new Post_to_Queue_Reorder(
-						array( 'post_type' => $post_type ),
-						$this
+						$this,
+						array( 'post_type' => $post_type )
 					);
 				}
 			}

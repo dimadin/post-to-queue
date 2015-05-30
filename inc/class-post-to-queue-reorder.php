@@ -86,10 +86,10 @@ class Post_to_Queue_Reorder {
 	 * @since 1.0
 	 * @access public
 	 *
-	 * @param array         $args Parameters used for setting up a class.
 	 * @param Post_to_Queue $ptq  Object of Post_to_Queue class.
+	 * @param array         $args Parameters used for setting up a class.
 	 */
-	public function __construct( $args = array(), Post_to_Queue $ptq ) {
+	public function __construct( Post_to_Queue $ptq, $args = array() ) {
 		/**
 		 * Fires before class is initialized.
 		 *
