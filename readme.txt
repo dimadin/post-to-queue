@@ -40,6 +40,17 @@ Post to Queue code is partly based on a code from plugin [Automatic Post Schedul
 
 Visit 'Settings > Writing' and adjust your configuration.
 
+== Screenshots ==
+
+1. Post to Queue settings
+2. Checkbox at Publish box on Add New Post screen
+3. Add to queue action at post's row
+4. Remove from queue action at post's row
+5. Filter posts by status
+6. Queue Reorder menu
+7. Current queue order
+8. Message that reordering was successfull
+
 == Frequently Asked Questions ==
 
 = My post was published immediately after I queued it. Why? =
