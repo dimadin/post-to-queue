@@ -397,7 +397,7 @@ class Post_to_Queue_Admin {
 		?>
 		<label for="ptq_hours">
 			<input name="ptq_hours" type="checkbox" id="ptq_hours" value="1"<?php checked( ( '00' != $hours['start'] ) || ( '00' != $hours['end'] ) ); ?> />
-		<?php printf( __( 'Publish queued posts only between %1$s and %2$s' ), $start, $end ); ?></label>
+		<?php printf( __( 'Publish queued posts only between %1$s and %2$s', 'post-to-queue' ), $start, $end ); ?></label>
 		<br />
 		<span class="description"><?php printf( __( 'Select the period of the day when you want queued posts to be published. Current time is <code>%1$s</code>.', 'post-to-queue' ), date_i18n( _x( 'Y-m-d G:i:s', 'current time date format', 'post-to-queue' ) ) ); ?></span>
 		<?php
@@ -507,7 +507,7 @@ class Post_to_Queue_Admin {
 
 		if ( $this->ptq->status == $_post->post_status ) {
 			/* translators: post state */
-			$post_states[ $this->ptq->status ] = _x( 'Queued', 'post state' );
+			$post_states[ $this->ptq->status ] = _x( 'Queued', 'post state', 'post-to-queue' );
 		}
 
 		/**
