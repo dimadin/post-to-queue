@@ -1,0 +1,22 @@
+{
+	"name": "dimadin/post-to-queue",
+	"description": "Stack posts to queue and auto publish them in chosen interval and time frame.",
+	"keywords": ["wordpress"],
+	"type": "wordpress-plugin",
+	"homepage": "http://blog.milandinic.com/wordpress/plugins/post-to-queue/",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Milan Dinić",
+			"email": "milan@srpski.biz",
+			"homepage": "http://blog.milandinic.com/"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/dimadin/post-to-queue/issues",
+		"source": "https://github.com/dimadin/post-to-queue"
+	},
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
