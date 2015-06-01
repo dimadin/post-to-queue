@@ -8,7 +8,7 @@
  * @subpackage Admin
  */
 
-
+if ( ! class_exists( 'Post_to_Queue_Admin' ) ) :
 /**
  * Load Post to Queue plugin admin area.
  * 
@@ -680,3 +680,4 @@ class Post_to_Queue_Admin {
 		exit;
 	}
 }
+endif;

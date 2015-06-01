@@ -8,7 +8,7 @@
  * @subpackage Reorder
  */
 
-
+if ( ! class_exists( 'Post_to_Queue_Reorder' ) ) :
 /**
  * Adds drag and drop editor for reordering queued posts.
  * 
@@ -421,3 +421,4 @@ class Post_to_Queue_Reorder {
 		do_action( 'ptq_reorder_after_display_screen' );
 	}
 }
+endif;
