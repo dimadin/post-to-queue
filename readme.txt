@@ -1,7 +1,7 @@
 === Post to Queue ===
 Contributors: dimadin
 Donate link: http://blog.milandinic.com/donate/
-Tags: 
+Tags: queue, scheduling, schedule
 Requires at least: 3.5
 Tested up to: 4.2.2
 Stable tag: 1.0
