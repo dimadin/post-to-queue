@@ -14,7 +14,7 @@
  * Description: Stack posts to queue and auto publish them in chosen interval and time frame.
  * Author:      Milan Dinić
  * Author URI:  http://blog.milandinic.com/
- * Version:     1.0-RC-1
+ * Version:     1.0
  * Text Domain: post-to-queue
  * Domain Path: /languages/
  * License:     GPL
