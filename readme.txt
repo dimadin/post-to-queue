@@ -18,7 +18,7 @@ Post to Queue is like Buffer for WordPress, just better.
 
 It requires that cron runs regularly to be able to publish posts on time.
 
-Post to Queue code is partly based on a code from plugin [Automatic Post Scheduler](http://wordpress.org/plugins/automatic-post-scheduler/) by [Tudor Sandu](http://tudorsandu.ro/) and a code from plugin [Metronet Reorder Posts](http://wordpress.org/plugins/metronet-reorder-posts/) by [Ronald Huereca](http://www.ronalfy.com/) and [Ryan Hellyer](http://geek.ryanhellyer.net/) for [Metronet Norge AS](http://www.metronet.no/).
+Post to Queue code is partly based on a code from plugin [Automatic Post Scheduler](http://wordpress.org/plugins/automatic-post-scheduler/) by [Tudor Sandu](http://tudorsandu.ro/) and a code from plugin [Metronet Reorder Posts](http://wordpress.org/plugins/metronet-reorder-posts/) by [Ronald Huereca](http://www.ronalfy.com/) and [Ryan Hellyer](https://geek.hellyer.kiwi/) for [Metronet Norge AS](http://www.metronet.no/).
 
 And it's on [GitHub](https://github.com/dimadin/post-to-queue).
 
