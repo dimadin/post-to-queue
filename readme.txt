@@ -12,7 +12,7 @@ Stack posts to queue and auto publish them in chosen interval and time frame.
 
 [Plugin homepage](http://blog.milandinic.com/wordpress/plugins/post-to-queue/) | [Plugin author](http://blog.milandinic.com/) | [Donate](http://blog.milandinic.com/donate/)
 
-Don't want to publish all of your posts at once but hate manual scheduling/rescheduling? Post to Queue comes as a solution. You just put posts to queue and they'll be published automatically when chosen time passes since last published post. It's even possible to choose days of the week and hours of the day when those posts will be published.
+Don't want to publish all of your posts at once but hate manual scheduling/rescheduling? Post to Queue comes as a solution. You just put posts to queue and they'll be published automatically when chosen time passes since last published post of that post type. It's even possible to choose days of the week and hours of the day when those posts will be published.
 
 Post to Queue is like Buffer for WordPress, just better.
 
