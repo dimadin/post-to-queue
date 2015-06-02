@@ -51,7 +51,7 @@ Visit 'Settings > Writing' and adjust your configuration.
 5. Filter posts by status
 6. Queue Reorder menu
 7. Current queue order
-8. Message that reordering was successfull
+8. Message that reordering was successful
 
 == Frequently Asked Questions ==
 
