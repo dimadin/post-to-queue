@@ -582,7 +582,7 @@ class Post_to_Queue_Admin {
 		$url = wp_nonce_url(
 			add_query_arg(
 				array(
-					'action'           => 'post-to-queue',
+					'ptq-action'       => 'post-to-queue',
 					'do'               => $args['do'],
 					'post_id'          => $_post->ID,
 					'_wp_http_referer' => $_SERVER['REQUEST_URI'] 
@@ -622,8 +622,8 @@ class Post_to_Queue_Admin {
 		do_action( 'ptq_admin_before_post_row_actions_handle' );
 
 		// Check if this action can be done
-		if ( ! isset( $_GET['action'] )
-			|| ( 'post-to-queue' != $_GET['action'] )
+		if ( ! isset( $_GET['ptq-action'] )
+			|| ( 'post-to-queue' != $_GET['ptq-action'] )
 			|| ! isset( $_GET['do'] )
 			|| ( ! in_array( $_GET['do'], array( 'queue', 'unqueue' ) ) )
 			|| ! isset( $_GET['post_id'] )
