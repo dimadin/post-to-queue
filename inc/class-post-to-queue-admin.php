@@ -585,7 +585,6 @@ class Post_to_Queue_Admin {
 					'ptq-action'       => 'post-to-queue',
 					'do'               => $args['do'],
 					'post_id'          => $_post->ID,
-					'_wp_http_referer' => $_SERVER['REQUEST_URI'] 
 				),
 				admin_url()
 			),
