@@ -1,9 +1,9 @@
-<?php 
+<?php
 /**
  * Post to Queue Admin Class
  *
  * Load Post to Queue plugin admin area.
- * 
+ *
  * @package    Post_to_Queue
  * @subpackage Admin
  */
@@ -11,7 +11,7 @@
 if ( ! class_exists( 'Post_to_Queue_Admin' ) ) :
 /**
  * Load Post to Queue plugin admin area.
- * 
+ *
  * Parts of this class are based on work by Tudor Sandu
  * on plugin Automatic Post Scheduler.
  *
@@ -23,7 +23,7 @@ class Post_to_Queue_Admin {
 	 *
 	 * @since 1.0
 	 * @access public
-	 * 
+	 *
 	 * @var bool
 	 */
 	public $filter_messages;
@@ -84,7 +84,7 @@ class Post_to_Queue_Admin {
 
 	/**
 	 * Add 'Add to queue' checkbox on post page in publish box.
-	 * 
+	 *
 	 * @since 1.0
 	 * @access public
 	 */
@@ -141,10 +141,10 @@ class Post_to_Queue_Admin {
 	 *
 	 * Note that there is no need to check for user's capability
 	 * and that order of queued post is added on 'save_post' hook.
-	 * 
+	 *
 	 * @since 1.0
 	 * @access public
-	 * 
+	 *
 	 * @param  array $data    An array of elements that make up a post.
 	 * @param  array $postarr Raw HTTP POST array of elements that make up a post.
 	 * @return array          Filtered array of elements that make up a post.

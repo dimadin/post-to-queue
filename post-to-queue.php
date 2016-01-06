@@ -304,7 +304,7 @@ class Post_to_Queue {
 		 *
 		 * @since 1.0
 		 */
-		do_action( 'ptq_after_init' );	
+		do_action( 'ptq_after_init' );
 	}
 
 	/**
@@ -816,7 +816,7 @@ class Post_to_Queue {
 		 * @param string $post_type Post type that is checked.
 		 */
 		return (bool) apply_filters( 'ptq_are_queued_for_type', $status, $post_type );
-	} 
+	}
 
 	/**
 	 * Get queue existence status for each post type.
@@ -977,7 +977,7 @@ class Post_to_Queue {
 			$hours = range( '00', '23' );
 		} else if ( $hours && ! $days ) {
 			$days = range( 0, 6 );
-		}		
+		}
 
 		/*
 		This should work like this:
@@ -999,7 +999,7 @@ class Post_to_Queue {
 			$day_of_next_time  = $this->date_i18n( 'w', $next_time );
 			$hour_of_next_time = $this->date_i18n( 'H', $next_time );
 
-			// First check current day & current hour 
+			// First check current day & current hour
 			if ( in_array( $day_of_next_time, $days ) && in_array( $hour_of_next_time, $hours ) ) {
 				// This is the time, do nothing more
 				$next_time_tmp = $next_time;
@@ -1353,6 +1353,6 @@ class Post_to_Queue {
 		} else {
 			return get_date_from_gmt( date( 'Y-m-d H:i:s', $unixtimestamp ), $dateformatstring );
 		}
-	}	
+	}
 }
 endif;

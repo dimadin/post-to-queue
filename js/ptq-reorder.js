@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
 				data:{
 					action: 'ptq-save-reorder',
 					order: order, // Passes IDs of list items in [ 1,3,2 ] format
-					nonce: ptqReorder.nonce, 
+					nonce: ptqReorder.nonce,
 				},
 				success: function(response) {
 					// Hide the loading animation
@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
 						$(this).remove();
 					});
 
-					return; 
+					return;
 				},
 				error: function(xhr,textStatus,e) {
 					// Hide the loading animation
@@ -70,12 +70,12 @@ jQuery(document).ready(function($) {
 						$( this ).remove();
 					});
 
-					return; 
+					return;
 				}
 			};
 
 			// Post options using AJAX
 			$.ajax(opts);
 		}
-	});	
+	});
 });

@@ -3,7 +3,7 @@
  * Post to Queue Reorder Class
  *
  * Adds drag and drop editor for reordering queued posts.
- * 
+ *
  * @package    Post_to_Queue
  * @subpackage Reorder
  */
@@ -11,7 +11,7 @@
 if ( ! class_exists( 'Post_to_Queue_Reorder' ) ) :
 /**
  * Adds drag and drop editor for reordering queued posts.
- * 
+ *
  * Based on work by Ryan Hellyer, Ronald Huereca, and Scott Basgaard
  * on plugin Metronet Reorder Posts for Metronet Norge AS.
  *
@@ -199,7 +199,7 @@ class Post_to_Queue_Reorder {
 	/**
 	 * Save order of queued posts.
 	 *
-	 * Loop through each ID and increment order by 1 
+	 * Loop through each ID and increment order by 1
 	 * from previous ID, starting from 0;
 	 *
 	 * @since 1.0
