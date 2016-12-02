@@ -62,6 +62,12 @@ class Post_to_Queue_Admin {
 		add_filter( 'post_row_actions',            array( $this, 'post_row_actions'         ), 10, 2 );
 		add_filter( 'page_row_actions',            array( $this, 'post_row_actions'         ), 10, 2 );
 
+		// Register bulk actions and their handler for each post type
+		foreach ( $this->ptq->post_types as $post_type ) {
+			add_filter( "bulk_actions-edit-{$post_type}",        array( $this, 'bulk_actions'        )        );
+			add_filter( "handle_bulk_actions-edit-{$post_type}", array( $this, 'bulk_actions_handle' ), 10, 3 );
+		}
+
 		// Attach checkbox to publish box on edit post page
 		add_action( 'post_submitbox_misc_actions', array( $this, 'publish_box'              )        );
 
@@ -677,6 +683,127 @@ class Post_to_Queue_Admin {
 		// Redirect to previous page
 		wp_safe_redirect( wp_get_referer() );
 		exit;
+	}
+
+	/**
+	 * Add queue actions to edit posts bulk actions.
+	 *
+	 * @since 2.0
+	 * @access public
+	 *
+	 * @param  array $actions An array of bulk actions.
+	 * @return array $actions Modified array of bulk actions.
+	 */
+	public function bulk_actions( $actions ) {
+		/**
+		 * Fires before bulk actions are made.
+		 *
+		 * @since 2.0
+		 *
+		 * @param array $actions An array of post row action links.
+		 */
+		do_action( 'ptq_admin_before_bulk_actions', $actions );
+
+		// Don't add for unauthorized users
+		if ( ! current_user_can( get_post_type_object( get_current_screen()->post_type )->cap->publish_posts ) ) {
+			return $actions;
+		}
+
+		$actions['ptq_queue']   = esc_html_x( 'Queue',   'bulk action', 'post-to-queue' );
+		$actions['ptq_unqueue'] = esc_html_x( 'Unqueue', 'bulk action', 'post-to-queue' );
+
+		/**
+		 * Fires after bulk actions are made.
+		 *
+		 * @since 2.0
+		 *
+		 * @param array $actions An array of post row action links.
+		 */
+		do_action( 'ptq_admin_after_bulk_actions', $actions );
+
+		return $actions;
+	}
+
+	/**
+	 * Handle bulk action.
+	 *
+	 * @since 2.0
+	 * @access public
+	 *
+	 * @param  string $redirect_to The redirect URL.
+	 * @param  string $doaction    The action being taken.
+	 * @param  array  $post_ids    The IDs of posts to take the action on.
+	 * @return string $redirect_to The redirect URL.
+	 */
+	public function bulk_actions_handle( $redirect_to, $doaction, $post_ids ) {
+		/**
+		 * Fires before bulk action is saved.
+		 *
+		 * @since 2.0
+		 */
+		do_action( 'ptq_admin_before_bulk_actions_handle' );
+
+		// Check if this action can be done
+		if ( ! in_array( $doaction, array( 'ptq_queue', 'ptq_unqueue' ) ) ) {
+			return $redirect_to;
+		}
+
+		/**
+		 * Filter post statuses that shouldn't be changed with bulk action.
+		 *
+		 * @since 2.0
+		 *
+		 * @param array $post_statuses Post statuses that shouldn't be changed with bulk action. Default 'publish' and 'future'.
+		 */
+		$disallowed_post_statuses = (array) apply_filters( 'ptq_disallowed_bulk_statuses', array( 'publish', 'future' ) );
+
+		/**
+		 * Filter the post status when post is unqueued with bulk action.
+		 *
+		 * @since 2.0
+		 *
+		 * @param string $post_status Post status when post is unqueued with bulk action. Default 'draft'.
+		 */
+		$unqueued_post_status = sanitize_key( apply_filters( 'ptq_default_bulk_status', 'draft' ) );
+
+		// Get new status
+		$status = ( 'ptq_queue' == $doaction ) ? $this->ptq->status : $unqueued_post_status;
+
+		// Loop through each post that takes this action
+		foreach ( $post_ids as $post_id ) {
+			$_post = get_post( $post_id, ARRAY_A );
+
+			// Don't process for disallowed post statuses
+			if (
+				empty( $_post )
+				|| in_array( $_post['post_status'], $disallowed_post_statuses )
+				|| ( $status != $this->ptq->status && $_post['post_status'] != $this->ptq->status )
+		 		) {
+				continue;
+			}
+
+			// Update post status
+			$_post['post_status'] = $status;
+			wp_update_post( $_post );
+
+			// Maybe schedule event for post type
+			$this->ptq->maybe_schedule_event( $_post['post_type'] );
+
+			// Remove order if unqueued
+			if ( $status != $this->ptq->status ) {
+				$this->ptq->delete_order( $_post['ID'] );
+			}
+		}
+
+		/**
+		 * Fires after bulk action is saved.
+		 *
+		 * @since 2.0
+		 */
+		do_action( 'ptq_admin_after_bulk_actions_handle' );
+
+		// Return redirection
+		return $redirect_to;
 	}
 }
 endif;
